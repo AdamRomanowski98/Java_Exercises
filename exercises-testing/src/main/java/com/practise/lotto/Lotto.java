@@ -29,4 +29,29 @@ public class Lotto {
         return numbers.size();
     }
 
+    public Integer jackpot(Set<Integer> numbers){
+        Set<Integer> winningNumbers = new HashSet<>();
+
+        if(numbers.size() == 2){
+            for(Integer i: numbers){
+                if(i < 0 || i > 10){
+                    return null;
+                }
+            }
+            winningNumbers = database.wylosuj(2);
+        }else if(numbers.size() == 5){
+            for(Integer i : numbers){
+                if(i < 0 || i >50){
+                    return null;
+                }
+            }
+            winningNumbers = database.wylosuj(5);
+        }else{
+            return null;
+        }
+
+        numbers.retainAll(winningNumbers);
+        return numbers.size();
+    }
+
 }
