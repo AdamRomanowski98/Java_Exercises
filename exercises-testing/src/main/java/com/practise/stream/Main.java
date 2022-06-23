@@ -43,24 +43,15 @@ public class Main {
 
     public static Integer getMaxJava8(List<Integer> numbers){
 
-        if(numbers.isEmpty()){
-            return null;
-        }
-
         return numbers.stream()
                 .mapToInt(n -> n)
-                .max().getAsInt();
+                .max().orElse(-1);
     }
 
     public static Integer getMinJava8(List<Integer> numbers){
-
-        if(numbers.isEmpty()){
-            return null;
-        }
-
-        return numbers.stream()
+        return  numbers.stream()
                 .mapToInt(n -> n)
-                .min().getAsInt();
+                .min().orElse(-1);
     }
 
     public static Integer getSumJava8(List<Integer> numbers){
@@ -70,13 +61,10 @@ public class Main {
     }
 
     public static Integer getAverageJava8(List<Integer> numbers){
-        if(numbers.isEmpty()){
-            return null;
-        }
 
         double result = IntStream.range(0, numbers.size())
                 .map(n -> numbers.get(n))
-                .average().getAsDouble();
+                .average().orElse(-1);
 
         return (int) result;
     }

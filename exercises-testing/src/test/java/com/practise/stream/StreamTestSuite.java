@@ -119,8 +119,8 @@ public class StreamTestSuite {
         Integer resultMin = Main.getMinJava8(numbers);
         Integer resultAverage = Main.getAverageJava8(numbers);
 
-        assertNull(resultMax);
-        assertNull(resultMin);
-        assertNull(resultAverage);
+        assertEquals(-1, resultMax);
+        assertEquals(-1, resultMin);
+        assertEquals(-1, resultAverage);
     }
 }
