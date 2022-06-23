@@ -22,13 +22,9 @@ public class Main {
     }
 
     public static List<String> deleteEmptyStringsUsingJava8(List<String> strings){
-        List<String> newList = new ArrayList<>();
-
-        strings.stream()
+        return strings.stream()
                 .filter(n -> n.length() != 0)
-                .forEach(n -> newList.add(n));
-
-        return newList;
+                .collect(Collectors.toList());
     }
 
     public static String getMergedStringUsingJava8(List<String> strings, String string){
@@ -46,12 +42,22 @@ public class Main {
     }
 
     public static Integer getMaxJava8(List<Integer> numbers){
+
+        if(numbers.isEmpty()){
+            return null;
+        }
+
         return numbers.stream()
                 .mapToInt(n -> n)
                 .max().getAsInt();
     }
 
     public static Integer getMinJava8(List<Integer> numbers){
+
+        if(numbers.isEmpty()){
+            return null;
+        }
+
         return numbers.stream()
                 .mapToInt(n -> n)
                 .min().getAsInt();
@@ -64,6 +70,10 @@ public class Main {
     }
 
     public static Integer getAverageJava8(List<Integer> numbers){
+        if(numbers.isEmpty()){
+            return null;
+        }
+
         double result = IntStream.range(0, numbers.size())
                 .map(n -> numbers.get(n))
                 .average().getAsDouble();

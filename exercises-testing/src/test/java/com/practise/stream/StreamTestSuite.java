@@ -110,4 +110,17 @@ public class StreamTestSuite {
         //then
         assertEquals(expected, result);
     }
+
+    @Test
+    public void testIfEmpty(){
+        List<Integer> numbers = new ArrayList<>();
+
+        Integer resultMax = Main.getMaxJava8(numbers);
+        Integer resultMin = Main.getMinJava8(numbers);
+        Integer resultAverage = Main.getAverageJava8(numbers);
+
+        assertNull(resultMax);
+        assertNull(resultMin);
+        assertNull(resultAverage);
+    }
 }
